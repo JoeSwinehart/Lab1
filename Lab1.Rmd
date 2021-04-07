@@ -45,27 +45,23 @@ l$a$m
 ```{r extracting the third column}
 l[["a"]][["m"]][[3]]
 ```
-3. Use the “airquality” dataset, which is part of base R. Split it by Month
 
 ```{r extracting a score for 7}
 l[["b"]][["score"]][[7]]
 ```
+
+
+
+## Lab 1 - Loops 
+
+
+3. Use the “airquality” dataset, which is part of base R. Split it by Month
 ```{r Q3}
 aq <- airquality
 aq_mo <- split(aq, aq$Month)
 ```
 
-## Lab 1 - Loops 
 4. Use a for loop to calculate the mean Ozone by month (remember to remove missing data from the calculation)
-
-3. Use the “airquality” dataset, which is part of base R. Split it by Month
-```{r}
-
-4. Use a for loop to calculate the mean Ozone by month (remember to remove missing data from the calculation)
-
-5. Replicate this calculation with lapply, sapply, and vapply
-
-```
 
 5. Replicate this calculation with lapply, sapply, and vapply
 ```{r}
