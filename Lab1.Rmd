@@ -18,9 +18,9 @@ Run the above code
 Extract the qr tolerance (tol).
 Extract the term labels from the model.
 hint: Use str to inspect the list. This one is tricky and involves pulling an attribute from an attribute.
-From the list
 
-2. Use at least two different methods to extract m.
+2. From the list
+Use at least two different methods to extract m.
 Extract the third column of m. Maintain the dimensions (matrix structure).
 Extract the score for student 7.
 ```{r}
@@ -46,8 +46,10 @@ l <- list(a = list(m = matrix(1:12, ncol = 3),
 6. Produce separate plots showing the relation between Ozone and Solar.R for each month (with a single loop).
 
 7. Use a for loop to save the plots to a folder on your computer
-```{r cars}
-summary(cars)
+```{r}
+
+
+
 ```
 
 
