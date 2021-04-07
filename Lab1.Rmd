@@ -42,21 +42,6 @@ l <- list(a = list(m = matrix(1:12, ncol = 3),
 
 ## Lab 1 - Loops 
 
-
-
-
-
-5. Replicate this calculation with lapply, sapply, and vapply
-
-6. Produce separate plots showing the relation between Ozone and Solar.R for each month (with a single loop).
-
-7. Use a for loop to save the plots to a folder on your computer
-```{r}
-
-
-
-```
-
 3. Use the “airquality” dataset, which is part of base R. Split it by Month
 
 ```{r Q3}
@@ -68,5 +53,45 @@ aq_mo <- split(aq, aq$Month)
 
 ```{r}
 
+
 ```
 
+5. Replicate this calculation with lapply, sapply, and vapply
+```{r}
+
+lapply(aq_mo, function(x) mean(x$Ozone, na.rm = TRUE))
+
+#sapply(aq_mo, function(x) mean (x$Ozone, na.rm = TRUE), is.double)
+
+vapply(aq_mo, function(x) mean(x$Ozone, na.rm = TRUE), FUN.VALUE = double(1))
+
+```
+
+6. Produce separate plots showing the relation between Ozone and Solar.R for each month (with a single loop).
+
+```{r}
+
+plots <- lapply(aq_mo, function(x) {
+    ggplot(x, aes(Ozone, Solar.R)) +
+        geom_point() +
+        geom_smooth()
+})
+
+```
+
+7. Use a for loop to save the plots to a folder on your computer
+```{r}
+#dir.create(here::here("plots")) 
+filenames <- here::here("plots", 
+                        paste0("month", names(aq_mo), ".png"))
+filenames
+
+for(i in seq_along(plots)) {
+    ggsave(filenames[i],
+           plots[[i]],
+           device = "png",
+           width = 6.5, 
+           height = 8)
+}
+
+```
