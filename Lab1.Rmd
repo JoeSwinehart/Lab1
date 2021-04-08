@@ -23,10 +23,6 @@ Extract the qr tolerance (tol).
 Extract the term labels from the model.
 hint: Use str to inspect the list. This one is tricky and involves pulling an attribute from an attribute.
 
-2. From the list
-Use at least two different methods to extract m.
-Extract the third column of m. Maintain the dimensions (matrix structure).
-Extract the score for student 7.
 ```{r DS Part 1}
 # Inhereted code
 set.seed(123) # Set random number generation
@@ -42,10 +38,16 @@ l <- list(a = list(m = matrix(1:12, ncol = 3),
 tolerance <- m$qr$tol
 
 #extracting term labels
-term_labels <- m$
+term_labels <- attributes(m$terms)
+car_labels <- term_labels["variables"]
 
 ```
 
+Data Structures 
+2. From the list
+Use at least two different methods to extract m.
+Extract the third column of m. Maintain the dimensions (matrix structure).
+Extract the score for student 7.
 ```{r extracting m}
 r <- l[["a"]][["m"]]
 r
