@@ -39,7 +39,7 @@ tolerance <- m$qr$tol
 
 #extracting term labels
 term_labels <- attributes(m$terms)
-car_labels <- term_labels["variables"]
+car_labels <- term_labels$variables
 
 ```
 
